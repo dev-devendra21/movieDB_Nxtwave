@@ -6,12 +6,17 @@ import {useSearchQuery} from '../../Context/searchContext'
 const Header = () => {
   const searchQuery = useRef('')
   const history = useHistory()
-  const {handleSearchTerm} = useSearchQuery()
+  const {handleSearchTerm, clearSearchTerm} = useSearchQuery()
 
   const handleSearchInput = () => {
     handleSearchTerm(searchQuery.current.value)
     history.replace('/')
     searchQuery.current.value = ''
+  }
+
+  const handleClearSearchInput = () => {
+    clearSearchTerm()
+    history.replace('/')
   }
   return (
     <>
@@ -26,6 +31,7 @@ const Header = () => {
               to="/"
               activeStyle={{color: 'red'}}
               className="nav-link"
+              onClick={handleClearSearchInput}
             >
               <li>Popular</li>
             </NavLink>

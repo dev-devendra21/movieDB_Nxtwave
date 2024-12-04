@@ -1,6 +1,6 @@
 import './index.css'
 
-function Pagination({page, totalPages, handlePageChange}) {
+function Pagination({page, handlePageChange}) {
   return (
     <div className="pagination">
       <div className="pagination-container">
@@ -10,14 +10,11 @@ function Pagination({page, totalPages, handlePageChange}) {
           onClick={() => handlePageChange(page - 1)}
           className="previous pagination-btn"
         >
-          Previous
+          Prev
         </button>
-        <p>
-          Page No. {page} of {totalPages}
-        </p>
+        <p className="current-page">{page}</p>
         <button
           type="button"
-          disabled={page === totalPages}
           onClick={() => handlePageChange(page + 1)}
           className="next pagination-btn"
         >

@@ -31,7 +31,7 @@ const Search = () => {
     content = (
       <Content
         data={data}
-        title="Search Movies"
+        title={searchTerm}
         handlePageChange={handlePageChange}
         page={currentPage}
         totalPages={data?.total_pages}

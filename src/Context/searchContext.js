@@ -3,6 +3,7 @@ import React, {useContext, useState} from 'react'
 const searchContext = React.createContext({
   searchTerm: '',
   handleSearchTerm: () => {},
+  clearSearchTerm: () => {},
 })
 
 const SearchProvider = ({children}) => {
@@ -10,9 +11,15 @@ const SearchProvider = ({children}) => {
   const handleSearchTerm = value => {
     setSearchTerm(value)
   }
+
+  const clearSearchTerm = () => {
+    setSearchTerm('')
+  }
   return (
     <>
-      <searchContext.Provider value={{searchTerm, handleSearchTerm}}>
+      <searchContext.Provider
+        value={{searchTerm, handleSearchTerm, clearSearchTerm}}
+      >
         {children}
       </searchContext.Provider>
     </>

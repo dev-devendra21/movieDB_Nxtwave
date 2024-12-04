@@ -3,6 +3,7 @@ import Header from './Components/Header'
 import Home from './Components/Home'
 import TopRated from './Components/TopRated'
 import Upcoming from './Components/Upcoming'
+import MovieDetails from './Components/MovieDetails'
 import SearchProvider from './Context/searchContext'
 import './App.css'
 
@@ -15,6 +16,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/top-rated" component={TopRated} />
         <Route path="/upcoming" component={Upcoming} />
+        <Route path="/movie/:id" component={MovieDetails} />
       </Switch>
     </SearchProvider>
   </>
